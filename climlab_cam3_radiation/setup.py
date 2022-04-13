@@ -26,7 +26,7 @@ def configuration(parent_package='', top_path=None):
         print('No Fortran compiler found, not building the CAM3 radiation module!')
         build = False
 
-    config = Configuration(package_name='cam3', parent_name=parent_package, top_path=top_path)
+    config = Configuration(package_name='climlab_cam3_radiation', parent_name=parent_package, top_path=top_path)
     config.add_data_files(join('data', 'README'))
     if build:
         config.add_extension(name='cam3',
