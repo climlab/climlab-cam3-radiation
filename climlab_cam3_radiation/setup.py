@@ -27,6 +27,7 @@ def configuration(parent_package='', top_path=None):
         build = False
 
     config = Configuration(package_name='climlab_cam3_radiation', parent_name=parent_package, top_path=top_path)
+    config.add_subpackage('tests')
     if build:
         config.add_extension(name='_cam3',
                          sources=[cam3_gen_source],
