@@ -29,7 +29,7 @@ def configuration(parent_package='', top_path=None):
     config = Configuration(package_name='climlab_cam3_radiation', parent_name=parent_package, top_path=top_path)
     config.add_data_files(join('data', 'README'))
     if build:
-        config.add_extension(name='cam3',
+        config.add_extension(name='_cam3',
                          sources=[cam3_gen_source],
                          extra_f90_compile_args=f90flags,
                          f2py_options=['--quiet'])
@@ -62,7 +62,7 @@ def cam3_gen_source(ext, build_dir):
     #thispath = abspath(config.local_path)
     thispath = config.local_path
     sourcelist = []
-    sourcelist.append(join(thispath,'cam3.pyf'))
+    sourcelist.append(join(thispath,'_cam3.pyf'))
     for item in fort90source:
         sourcelist.append(join(thispath, 'src', item))
     sourcelist.append(join(thispath,'Driver.f90'))
