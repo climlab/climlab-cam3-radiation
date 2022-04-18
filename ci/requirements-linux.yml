@@ -7,3 +7,6 @@ dependencies:
   - fortran-compiler
   - toolchain3
   - pytest
+  - xarray
+  - netcdf4
+  - pooch

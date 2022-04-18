@@ -7,3 +7,6 @@ dependencies:
   - gfortran_osx-arm64
   - libgfortran
   - pytest
+  - xarray
+  - netcdf4
+  - pooch
