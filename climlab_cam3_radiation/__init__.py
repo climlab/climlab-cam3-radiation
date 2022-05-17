@@ -1,4 +1,4 @@
-__version__ = '0.1'
+__version__ = '0.2'
 
 #  import everything from the fortran object
 from ._cam3 import *
