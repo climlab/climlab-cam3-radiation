@@ -33,7 +33,7 @@ See below for instructions on how to build from source.
 
 You can import the Fortran driver into a Python session with
 ```
-from climlab_cam3_radiation import cam3
+import climlab_cam3_radiation as cam3
 ```
 
 Please see the directory `climlab_cam3_radiation/tests/` directory in this repository
