@@ -53,7 +53,7 @@ conda activate cam3_build_env
 python -m pip install . --no-deps -vv
 ```
 
-To run tests, do this from any directory other than the climlab_rrtmg repo:
+To run tests, do this from any directory other than the climlab-cam3-radiation repo:
 ```
 pytest -v --pyargs climlab_cam3_radiation
 ```
