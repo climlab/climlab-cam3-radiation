@@ -1,6 +1,6 @@
 # climlab-cam3-radiation
 
-![build-and-test workflow](https://github.com/climlab/climlab-cam3-radiation/actions/workflows/build-and-test.yml/badge.svg)
+[![Build and test](https://github.com/climlab/climlab-cam3-radiation/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/climlab/climlab-cam3-radiation/actions/workflows/build-and-test.yml)
 
 Brian Rose, University at Albany
 
