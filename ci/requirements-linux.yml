@@ -5,8 +5,8 @@ dependencies:
   - pip
   - numpy
   - fortran-compiler
-  - toolchain3
   - pytest
+  - meson-python
   - xarray
   - netcdf4
   - pooch
