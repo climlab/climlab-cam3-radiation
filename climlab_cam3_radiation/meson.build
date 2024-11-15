@@ -18,7 +18,7 @@ incdir_f2py = run_command(py,
     check : true
 ).stdout().strip()
 
-fortsources = ['Driver.f90',
+fortsources = files('Driver.f90',
 'crm.F90',
 'radsw.F90',
 'radlw.F90',
@@ -38,7 +38,7 @@ fortsources = ['Driver.f90',
 'shr_kind_mod.F90',
 'prescribed_aerosols.F90',
 'pmgrid.F90',
-]
+)
 
 mysource = custom_target('_cam3.c',
   input : fortsources,  
