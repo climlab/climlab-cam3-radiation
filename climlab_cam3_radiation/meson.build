@@ -44,7 +44,7 @@ fortsources = files('pmgrid.F90',
 )
 
 cam3module = custom_target('_cam3.c',
-  input : ['shr_kind_mod.F90', 'absems.f90', 'Driver.f90'],
+  input : ['shr_kind_mod.F90', 'absems.F90', 'Driver.f90'],
   output : ['_cam3module.c',
             '_cam3-f2pywrappers2.f90',
              '_cam3-f2pywrappers.f',
