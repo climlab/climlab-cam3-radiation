@@ -1,0 +1,23 @@
+[build-system]
+build-backend = 'mesonpy'
+requires = [
+    "meson-python",
+    "numpy",
+]
+
+[project]
+name = "climlab-cam3-radiation"
+version = "0.3"
+description = "Python wrapper for the NCAR CAM3 radiation scheme."
+license = { file = "LICENSE" }
+maintainers = [
+    { name = "Brian E. J. Rose", email = "brose@albany.edu" },
+]
+readme = "README.md"
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Fortran",
+    "Topic :: Scientific/Engineering :: Atmospheric Science",
+]
