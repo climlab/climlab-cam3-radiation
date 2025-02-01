@@ -23,7 +23,7 @@ conda install climlab-cam3-radiation --channel conda-forge
 ```
 or create a self-contained environment:
 ```
-conda create --name my_env python=3.10 climlab-cam3-radiation --channel conda-forge
+conda create --name my_env python=3.12 climlab-cam3-radiation --channel conda-forge
 conda activate my_env
 ```
 
@@ -42,13 +42,11 @@ for working examples that set up all the necessary input arrays and call the dri
 ## Building from source
 
 Here are instructions to create a build environment (including Fortran compiler)
-with conda/mamba and build using f2py.
-It should be possible to build using other Fortran compilers, but I haven't tested this.
+with conda and build using f2py.
 
-To build *(example for Apple M1 machine, see `./ci/` for other environment files)*:
+To build:
 ```
-mamba create --name cam3_build_env python=3.10 --channel conda-forge
-mamba env update --file ./ci/requirements-macos-arm64.yml
+conda env create --file ./ci/requirements-macos-arm64.yml
 conda activate cam3_build_env
 python -m pip install . --no-deps -vv
 ```
@@ -60,6 +58,7 @@ pytest -v --pyargs climlab_cam3_radiation
 
 ## Version history
 
-Version 0.2 is the first public release (April 2022).
+- Version 0.3 (February 2025) modernizes the build system for this package can run on Python 3.12 and above. The build now uses [meson](https://mesonbuild.com/).
+- Version 0.2 is the first public release (April 2022).
 The Python wrapper code has been extracted from
 [climlab v0.7.13](https://github.com/brian-rose/climlab/releases/tag/v0.7.13).
