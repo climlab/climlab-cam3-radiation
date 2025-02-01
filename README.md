@@ -58,7 +58,9 @@ pytest -v --pyargs climlab_cam3_radiation
 
 ## Version history
 
-- Version 0.3 (February 2025) modernizes the build system for this package can run on Python 3.12 and above. The build now uses [meson](https://mesonbuild.com/).
+- Version 0.3.1 (February 2025) modernizes the build system for this package can run on Python 3.12 and above. The build now uses [meson](https://mesonbuild.com/).
+
+This version also uses gridpoint-specific values of the input parameter `eccf` (solar irradiance factor), consistent with recent changes in climlab-rrtmg.
 - Version 0.2 is the first public release (April 2022).
 The Python wrapper code has been extracted from
 [climlab v0.7.13](https://github.com/brian-rose/climlab/releases/tag/v0.7.13).
