@@ -18,9 +18,10 @@ incdir_f2py = run_command(py,
     check : true
 ).stdout().strip()
 
-inc_np = include_directories(incdir_numpy, incdir_f2py)
+inc_np = include_directories(incdir_numpy, incdir_f2py, 'src')
 
-fortsources = files('src/pmgrid.F90',
+fortsources = files(
+                'src/pmgrid.F90',
                 'src/prescribed_aerosols.F90',
                 'src/shr_kind_mod.F90',
                 'src/quicksort.F90',
