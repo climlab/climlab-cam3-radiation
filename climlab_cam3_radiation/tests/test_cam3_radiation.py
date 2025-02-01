@@ -1,6 +1,5 @@
 import numpy as np
-import pytest
-from climlab_cam3_radiation import driver, absems
+from climlab_cam3_radiation import driver
 
 
 #### Define thermodynamic and physical constants
@@ -104,3 +103,31 @@ def test_cam3_radiation():
                scon, flus, r_liq, r_ice,
                CO2vmr, N2Ovmr, CH4vmr, CFC11vmr,
                CFC12vmr, g, Cpd, epsilon, stebol)
+
+def make_2d(input, JM=2):
+    return np.tile(input, JM)[..., np.newaxis]
+def make_3d(input, JM=2):
+    return np.tile(input, [1, JM, 1])
+
+def test_cam3_multicol():
+    JM = 2   # number of columns
+    # irradiance is twice as large in column 0
+    irradiance_factor = 2.
+    eccf = np.array([irradiance_factor, 1.])  # instantaneous irradiance = scon * eccentricity_factor
+
+    (TdotRad, SrfRadFlx, qrs, qrl, swflx, swflxc, lwflx, lwflxc, SwToaCf,
+     SwSrfCf, LwToaCf, LwSrfCf, LwToa, LwSrf, SwToa, SwSrf,
+     swuflx, swdflx, swuflxc, swdflxc,
+     lwuflx, lwdflx, lwuflxc, lwdflxc) = \
+        driver(KM, JM, IM, do_sw, do_lw, 
+               make_2d(p), make_2d(dp), make_2d(ps), make_3d(Tatm), make_2d(Ts),
+               make_3d(q), make_3d(O3mmr), 
+               make_2d(cldfrac), make_2d(clwp), make_2d(ciwp), in_cld,
+               make_2d(aldif), make_2d(aldir), make_2d(asdif), make_2d(asdir), 
+               eccf, make_2d(coszen), scon, 
+               make_2d(flus), make_2d(r_liq), make_2d(r_ice),
+               CO2vmr, N2Ovmr, CH4vmr, CFC11vmr,
+               CFC12vmr, g, Cpd, epsilon, stebol)
+    
+    # The downwelling SW at top of model should be twice as large in column 0
+    assert np.isclose(swdflx[0,0], irradiance_factor*swdflx[0,-1])
