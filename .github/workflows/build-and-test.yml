@@ -2,10 +2,16 @@ name: Build and test
 
 on:
   push:
+    branches:
+      - "main"
   pull_request:
   workflow_dispatch:
   schedule:
     - cron: '35 4 * * TUE' # Tuesday at 04:35 UTC”
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build-and-test:
@@ -21,13 +27,10 @@ jobs:
         os: [Ubuntu, macOS, Windows]
         include:
           - os: Ubuntu
-            environment-file: ci/requirements-linux.yml
             shell: bash -l {0}
           - os: macOS
-            environment-file: ci/requirements-macos.yml
             shell: bash -l {0}
           - os: Windows
-            environment-file: ci/requirements-windows.yml
             shell: powershell
 
     steps:
@@ -38,7 +41,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
           activate-environment: cam3_build_env
           channel-priority: strict
-          environment-file: ${{ matrix.environment-file }}
+          environment-file: ci/requirements.yml
 
       - name: Setup Fortran compiler for Windows
         if: ${{ matrix.os == 'Windows' }}
