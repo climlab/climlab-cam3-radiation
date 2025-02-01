@@ -7,7 +7,7 @@ requires = [
 
 [project]
 name = "climlab-cam3-radiation"
-version = "0.3"
+version = "0.3.1"
 description = "Python wrapper for the NCAR CAM3 radiation scheme."
 license = { file = "LICENSE" }
 maintainers = [

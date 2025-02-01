@@ -64,11 +64,12 @@ O3vmr = np.array([2.25573888e-08, 2.38730436e-08, 2.52586476e-08, 2.66442517e-08
 O3mmr = O3vmr * 48.0 / 28.97
 # Other values taken from the AquaPlanet Experiment protocols,
 # except for O2 which is set the realistic value 0.21
-CO2vmr = 348. / 1E6 * np.ones_like(p)
-CH4vmr = 1650. / 1E9 * np.ones_like(p)
-N2Ovmr = 306. / 1E9 * np.ones_like(p)
-CFC11vmr = 0. * np.ones_like(p)
-CFC12vmr = 0. * np.ones_like(p)
+#  Note the CAM3 scheme only accepts scalar (well-mixed) values for these gases
+CO2vmr = 348. / 1E6 
+CH4vmr = 1650. / 1E9 
+N2Ovmr = 306. / 1E9 
+CFC11vmr = 0. 
+CFC12vmr = 0. 
 
 # Solar parameters
 scon = 1365.2  # solar constant
